@@ -1,0 +1,153 @@
+#Main {
+	display: flex;
+	flex-flow: column;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 600px;
+	height: 400px;
+	background: var(--primary);
+
+ 	box-shadow: var(--shadow);
+
+	text-align: center;
+	border: var(--border);
+	border-radius: 50px;
+
+	h1 {
+		color: var(--color);
+		margin-top: 20px;
+		font-size: 28pt;
+	}
+
+	.meta {
+		opacity: 0;
+		display: block;
+		position: absolute;
+
+		left: 50%;
+		top: 80px;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+
+		padding: 10px;
+		border-radius: 6pt;
+		min-width: 60px;
+
+		background: var(--color);
+		color: white;
+		box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+		user-select: none;
+		transition: 0.2s;
+
+		&:after {
+			content: '';
+			display: block;
+
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 50%);
+			border: solid 10px;
+			border-color: var(--color) transparent transparent transparent;
+		}
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	.input {
+		margin: 40px auto 0px auto;
+		width: 80%;
+
+		background: var(--primary);
+		color: var(--color);
+		text-align: left;
+
+		font-size: 18pt;
+		padding: 10px 20px;
+
+		border: var(--border);
+		border-radius: var(--border-radius);
+		box-shadow: var(--shadow-inset);
+
+		font-weight: 300;
+		transition: 0.2s;
+	}
+
+	button {
+		margin: 20px auto 0px auto;
+		width: 80%;
+
+		font-size: 18pt;
+		padding: 10px 20px;
+
+		border: var(--border);
+		border-radius: var(--border-radius);
+		box-shadow: var(--shadow);
+
+		background: var(--primary);
+		color: var(--color);
+		font-weight: 300;
+
+		transition: 0.1s;
+
+		&:active:enabled{
+			opacity: 0.8;
+		}
+	}
+
+	.output {
+		display: flex;
+		width: 80%;
+		
+		margin: 50px auto 0px auto;
+		border-radius: var(--border-radius);
+		color: var(--color);
+
+		p {
+			margin: 0px;
+			margin-right: 5%;
+			color: inherit;
+			box-shadow: var(--shadow);
+		}
+
+		button {
+			margin: 0px;
+			width: 20%;
+			color: inherit;
+		}
+
+		&.disabled {
+			opacity: 0.8;
+			color: #999;
+
+			p, button {
+				box-shadow: var(--shadow);
+			}
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	#Main {
+		width: 90%;
+		height: 80%;
+
+		.output {
+			flex-flow: column;	
+
+			p {
+				width: 100%;
+			}
+
+			button {
+				margin-top: 20px;
+				width: 100%;
+			}
+		}
+	}
+}

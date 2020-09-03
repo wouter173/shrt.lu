@@ -1,0 +1,37 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Nunito Sans', sans-serif;
+	-webkit-appearance: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+:root {
+	--primary: #f0f0f0;
+	--color: #0a516d;
+
+	--border: 1px solid #d5d5d5;
+	--border-radius: 16px;
+
+	--shadow: 5px 5px 10px #e4e4e4, -5px -5px 10px #ffffff;
+	--shadow-inset: inset 5px 5px 10px #e4e4e4, inset -5px -5px 10px #ffffff;
+
+	--background: url('App/logo.svg');
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary: #1e1e1e;
+		--color: #84abbb;
+
+		--border: 1px solid #252525;
+
+		--shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #232323;
+		--shadow-inset: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #232323;
+
+		--background: url('App/logo-dark.svg');
+	}
+}

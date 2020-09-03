@@ -1,0 +1,33 @@
+#background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+
+	overflow: hidden;
+	background-color: var(--primary);
+
+	&::before {
+		content: '';
+
+		position: absolute;
+
+		width: 400vw;
+		height: 800vh;
+		top: 0px;
+		left: 0px;
+
+		background-image: var(--background);
+		background-repeat: space;
+
+		transform: rotate(-30deg) translate(0px,  -40%);
+	}
+}
+
+@media (max-width: 900px) {
+	#background::before {
+		width: 800vw;
+		height: 400vh;
+	}
+}

@@ -1,0 +1,13 @@
+node_modules/
+.firebase
+.vscode
+build/
+.env
+
+.firebaserc
+react-app-env.d.ts
+.DS_store
+
+worker/worker
+worker/dist
+worker/wrangler.toml
