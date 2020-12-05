@@ -11,27 +11,20 @@
 
 :root {
 	--primary: #f0f0f0;
-	--color: #0a516d;
+	--color: #242424;
 
-	--border: 1px solid #d5d5d5;
+	--border: 1px solid rgba(255,255,255,0.2);
 	--border-radius: 16px;
 
-	--shadow: 5px 5px 10px #e4e4e4, -5px -5px 10px #ffffff;
-	--shadow-inset: inset 5px 5px 10px #e4e4e4, inset -5px -5px 10px #ffffff;
+	--background: rgba(255, 255, 255, 0.4);
+	--blur: blur(5px);
 
-	--background: url('App/logo.svg');
+	--background-image: url("App/logo.svg");
+	--gradient: linear-gradient(90deg, #e0da19, #f27a18, #f21889, purple);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (max-width: 900px) {
 	:root {
-		--primary: #1e1e1e;
-		--color: #84abbb;
-
-		--border: 1px solid #252525;
-
-		--shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #232323;
-		--shadow-inset: inset 5px 5px 10px #1a1a1a, inset -5px -5px 10px #232323;
-
-		--background: url('App/logo-dark.svg');
+		--gradient: linear-gradient(90deg, #f27a18, #f21889);
 	}
 }

@@ -9,11 +9,12 @@ export default function Main() {
   const [url, setUrl] = useState('https://');
   const [old, setOld] = useState('');
   const [link, setLink] = useState('link');
+  const [shortened, setShortened] = useState(false);
   const [meta, setMeta] = useState<Meta>({content: '', visible: false});
 
 
   const submit = () => {
-
+    
     if (old === url) return;
       
     // eslint-disable-next-line
@@ -24,19 +25,26 @@ export default function Main() {
 
     let api = document.URL === "http://localhost:3000/"? "http://localhost:8787/": "https://api-production.shrtlu.workers.dev/"
 
+    setShortened(false);
+    setLink("Shortening...");
+
     fetch(api + `?url=${url}`, {
       method: 'POST',
     }).then(res => {
       return res.json();
     }).then(data => {
       setOld(url);
+      setShortened(true);
       setLink(data.link);
     });
   }
 
 	return (
     <div id='Main'>
-      <h1>Shrt.lu</h1>
+      <div className="title">
+        <h1>Shrt.lu</h1> 
+        <h2>- Url Shortener</h2>
+      </div>
 
       <p className={`meta ${meta.visible? 'visible' : ''}`} style={meta.position? {transform: `translate(${meta.position.x}, ${meta.position.y})`}: {}}>{meta.content}</p> 
       
@@ -45,9 +53,9 @@ export default function Main() {
       }} onKeyPress={e => e.key === 'Enter' ? submit() : ''} />
       <button onClick={() => submit()}>Shorten!</button>
 
-      <div className={`output ${link === 'link'? 'disabled': ''}`}>
+      <div className={`output ${!shortened? 'disabled': ''}`}>
         <p className='input'>{link}</p>
-        <button disabled={link === 'link'} onClick={() => {
+        <button disabled={!shortened} onClick={() => {
           navigator.clipboard.writeText(link);
           setMeta({ content: 'Copied!', visible: true, position: {x: '-50%', y: '150px'} });
 

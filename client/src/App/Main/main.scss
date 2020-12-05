@@ -7,22 +7,32 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 
-	width: 600px;
-	height: 400px;
-	background: var(--primary);
-
- 	box-shadow: var(--shadow);
+	width: 690px;
+	height: 420px;
+	background: var(--background);
+	backdrop-filter: var(--blur);
 
 	text-align: center;
 	border: var(--border);
-	border-radius: 50px;
+	border-radius: var(--border-radius);
 
-	h1 {
-		color: var(--color);
+	.title {
 		margin-top: 20px;
-		font-size: 28pt;
-	}
 
+		h1 {
+			display: inline;
+			font-family: 'Mukta', sans-serif;
+			color: white;
+			font-size: 28pt;
+		}
+
+		h2 {
+			color: white;
+			display: inline;
+			font-weight: 300;
+			margin-left: 6px;
+		}
+	}
 	.meta {
 		opacity: 0;
 		display: block;
@@ -34,12 +44,12 @@
 		z-index: 10;
 
 		padding: 10px;
+		border: var(--border);
 		border-radius: 6pt;
 		min-width: 60px;
 
-		background: var(--color);
-		color: white;
-		box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+		background: white;
+		color: var(--color);
 		user-select: none;
 		transition: 0.2s;
 
@@ -51,7 +61,7 @@
 			left: 50%;
 			transform: translate(-50%, 50%);
 			border: solid 10px;
-			border-color: var(--color) transparent transparent transparent;
+			border-color: white transparent transparent transparent;
 		}
 
 		&.visible {
@@ -63,7 +73,7 @@
 		margin: 40px auto 0px auto;
 		width: 80%;
 
-		background: var(--primary);
+		background: var(--background);
 		color: var(--color);
 		text-align: left;
 
@@ -76,6 +86,11 @@
 
 		font-weight: 300;
 		transition: 0.2s;
+
+		&:focus {
+			background: rgba(255, 255, 255, 0.6);
+			outline: none;
+		}
 	}
 
 	button {
@@ -94,8 +109,9 @@
 		font-weight: 300;
 
 		transition: 0.1s;
+		cursor: pointer;
 
-		&:active:enabled{
+		&:active{
 			opacity: 0.8;
 		}
 	}
@@ -135,7 +151,7 @@
 @media (max-width: 900px) {
 	#Main {
 		width: 90%;
-		height: 80%;
+		height: 520px;
 
 		.output {
 			flex-flow: column;	
